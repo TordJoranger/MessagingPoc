@@ -8,13 +8,11 @@ namespace ConsoleApp3;
 
 public class EventConverter : JsonConverter<IMessageBase>
 {
-
     public override bool CanConvert(Type typeToConvert)
     {
         return typeToConvert == typeof(IMessageBase);
     }
 
-    
     public override IMessageBase? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
         var jObject = JsonNode.Parse(ref reader);
@@ -36,5 +34,4 @@ public class EventConverter : JsonConverter<IMessageBase>
     {
         throw new NotImplementedException();
     }
-
 }
